@@ -17,10 +17,26 @@ class Names extends Component {
             this.setState({newNames: allNames})
         })
     }
+
+     concatString = () => {
+        const combineString = this.props.name.replace(/ +/g, "").toLowerCase();
+        return combineString.split('');
+      }
+
+     evaluateNames = () => {
+        const arrAlikes = this.state.newNames.filter(string => {
+          return this.concatString().every(letter => {
+            return string.includes(letter);
+          })
+        })
+        return arrAlikes
+      }
     
     render() {
       return (
-      <div className="Jumbo">{this.state.newNames[Math.floor(Math.random())]}</div>
+      <div className="Jumbo">
+        {this.evaluateNames()}
+    </div>
       )}
   }
   

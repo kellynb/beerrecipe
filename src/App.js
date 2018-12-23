@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import Names from './WordName';
 import NameEntry from './NameEntry';
 
 class App extends Component {
@@ -9,7 +8,6 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <NameEntry />
-          <Names />
         </header>
       </div>
     );
