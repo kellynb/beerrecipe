@@ -3,6 +3,7 @@ import './App.css';
 
 
 class Names extends Component {
+
     
      concatString = () => {
         const combineString = this.props.name.replace(/ +/g, "").toLowerCase();
@@ -16,16 +17,19 @@ class Names extends Component {
           })
         })
         return arrAlikes
-      }
+      } 
     
 
     render() {  
       return (
+        console.log('Hi'),
       <div className="Jumbo">
         <ul>
-            {this.evaluateNames().map((name, index) => {
+             {this.evaluateNames().length > 0 ?
+               this.evaluateNames().map((name, index) => {
                 return <li key={index}>{name}</li>
-                })}
+               }) : <p>Try Again</p> 
+            }
         </ul>
       </div>
       )}
