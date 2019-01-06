@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import WordName from './WordName';
 import './App.css';
+import Girl from './images/Girl.svg';
+import Boy from './images/Boy.svg';
+import Saitama from './images/Saitama.png';
 
 class NameEntry extends Component {
   constructor(props) {
@@ -69,10 +72,21 @@ class NameEntry extends Component {
     event.preventDefault();
   }
 
+  showImage = () => {
+    if (this.state.gender === 'boy') {
+      return Boy;
+    } else if (this.state.gender === 'girl') {
+      return Girl;
+    } else if (this.state.gender === 'both') {
+      return Saitama
+    }
+  }
+
   render() {
 
     return (
       <div>
+        <img src={this.showImage()} width='250'></img>
         <div>
           <label>
             Boy
