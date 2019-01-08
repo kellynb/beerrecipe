@@ -3,7 +3,13 @@ import './App.css';
 
 
 class Names extends Component {
-
+  
+      allToLowerCase = () => {
+        const toLowerCase = this.props.newName.map(name => {
+          return name.toLowerCase();
+        })
+        return toLowerCase;
+      }
     
      concatString = () => {
         const combineString = this.props.name.replace(/ +/g, "").toLowerCase();
@@ -11,18 +17,20 @@ class Names extends Component {
       }
 
      evaluateNames = () => {
-        const arrAlikes = this.props.newName.filter(string => {
-          return this.concatString().every(letter => {
-            return string.includes(letter);
-          })
-        })
+        const arrAlikes = this.allToLowerCase().reduce((acc,string,index) => {
+         if(this.concatString().every(letter => {
+             return string.includes(letter)}) )  {
+                 acc.push(this.props.newName[index])
+          }
+         return acc
+        }, []);
+        
         return arrAlikes
-      } 
+      }
     
 
     render() {  
       return (
-        console.log('Hi'),
       <div className="Jumbo">
         <ul>
              {this.evaluateNames().length > 0 ?

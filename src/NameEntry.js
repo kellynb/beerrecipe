@@ -61,7 +61,7 @@ class NameEntry extends Component {
   }
 
   addName = (event) => {
-    if (this.state.value !== '') {
+    if (this.state.value !== '' && this.state.gender !== null) {
         this.setState({
         name: [],
         newNames: []
